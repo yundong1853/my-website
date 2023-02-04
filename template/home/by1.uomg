@@ -1,0 +1,282 @@
+﻿<?php
+/*
+Template Name:【琲鸳】防红商业模板
+Description:【琲鸳】防红模板
+Version:4.0
+Author:琲鸳
+Author Url:http://www.by-01.xyz/
+Preview Url:https://ae01.alicdn.com/kf/HTB1N0u5USzqK1RjSZPx7634tVXaj.png
+*/
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Aviato E-Commerce Template">
+  
+  <meta name="author" content="Themefisher.com">
+
+  <title>{name} - {sitename}</title>
+
+  <!-- Mobile Specific Meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/by1/img/favicon.png" />
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="assets/by1/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Ionic Icon Css -->
+  <link rel="stylesheet" href="assets/by1/plugins/Ionicons/css/ionicons.min.css">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="assets/by1/plugins/animate-css/animate.css">
+  <!-- Magnify Popup -->
+  <link rel="stylesheet" href="assets/by1/plugins/magnific-popup/dist/magnific-popup.css">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="assets/by1/plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="assets/by1/plugins/slick-carousel/slick/slick-theme.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/by1/css/style.css">
+
+	<style type="text/css">
+			#result{margin-top:50px; }
+		</style>
+</head>
+
+<body id="body">
+
+<!-- Header Start -->
+<header class="navigation">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- header Nav Start -->
+				<nav class="navbar">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.html">
+								<img src="assets/by1/images/logo.png" alt="Logo">
+							</a>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+							<li><a href="user">用户中心</a></li>
+								<li><a href="user/login.php">登录</a></li>
+								<li><a href="user/reg.php">注册</a></li>
+							</ul>
+							</div><!-- /.navbar-collapse -->
+							</div><!-- /.container-fluid -->
+						</nav>
+					</div>
+				</div>
+			</div>
+			</header><!-- header close -->
+
+<section class="page-title bg-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+        
+          <h1>{name}</br>【商业版】</h1>
+          
+          <p>支持无毒浏览的短网址！运营推广从这里开始......</p>
+       
+      <section class="contact-form">
+    <div class="container">
+        <div class="row">
+        
+            <form action="#" method="post" id="contact-form" >
+            
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        <div class="form-group">
+                            <input name="longurl" type="text" class="form-control" placeholder="输入网址例如：{siteurl}">
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-md-6 col-sm-12">
+                      <div class="block">
+                            <button type="submit" class="btn btn-default form-contro">立即生成</button>
+                     </div>
+                </div>
+                
+               </form>
+         
+           <p id="result" class="col-md-12">您还没有生成数据</p>
+            
+        </div>
+            </div>
+    
+</section>
+             
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-arrow">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 bg-primary">
+				<div class="block">
+					<i class="ion-erlenmeyer-flask"></i>
+					<h3>【商业版】</h3>
+					<p>【商业版】优势：抛弃了传统跳转观念，新增<u>用户中心</u>，用户可根据需求自行配置域名跳转模块</p>
+				</div>
+			</div>
+			<div class="col-md-4 bg-primary bg-primary-dark">
+				<div class="block">
+					<i class="ion-leaf"></i>
+					<h3>【程序介绍】</h3>
+					<p>本程序通过简单的短网址绕过方法实现域名不报毒的情况下在腾讯应用上浏览-腾讯QQ,微信,QQ浏览器等等</p>
+				</div>
+			</div>
+			<div class="col-md-4 bg-primary bg-primary-darker">
+				<div class="block">
+					<i class="ion-lightbulb"></i>
+					<h3>【程序售价】</h3>
+					<p>
+					本程序基于uomg改版含本站制作的首页主题，跳转方式。
+					<br>
+				售价:500元（源码，包更新，再无二次收费）
+				<br>
+				授权方式：QQ授权，可无限搭建，不限域名。售后群支持。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="testimonial section-sm">
+
+			<div class="col-md-6">
+				<div class="tabCommon">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#vision" data-toggle="tab">API</a></li>
+						<li><a href="#mission" data-toggle="tab">错误代码</a></li>
+						<li><a href="#approch" data-toggle="tab">关于我们</a></li>
+					</ul>
+					
+					<div class="tab-content">
+						<div id="vision" class="tab-pane fade active in">
+						
+	     		<h3 id="-">接口地址（可直接放入彩虹代刷网后台）</h3>
+			
+   <pre>http://url.q-by.cn/dwz.php?longurl=</pre>
+   
+          <div class="col-md-3 col-sm-6 wow fadeInUp templatemo-feature">
+				
+								<blockquote>
+						<p>
+      txt格式请带上<code>format=txt</code>
+                <br>
+      二维码格式请带上<code>format=qrcode</code>
+     </p>
+     </blockquote>
+     
+				    	</div>
+						</div>
+						
+						<div id="mission" class="tab-pane fade">
+								<p>
+												<h5>
+												10001：URL不能为空<br>
+            10002：URL地址错误<br>
+            10003：当前IP已被拉黑<br>
+            10004：当前IP生成频率太高，已禁止生成<br>
+            10005：当前域名已被拉黑<br>
+            10006：未知错误，联系管理员<br>
+             </h5>
+       </p>
+						</div>
+						
+						<div id="approch" class="tab-pane fade">
+							<p>{name}是解决ＱＱ、微信推广过程中遇到的域名报毒，电脑管家报毒，打不开链接等情况，推出的一款程序，以短网址的形式展现给用户，解决推广难题！</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="call-to-action bg-1 section-sm overly">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="block">
+					<h2>【免责声明】</h2>
+					<p>防护短网址由用户生成，所跳转的内容与本站无关，仅仅用于被误报短暂提供访问服务，使用即遵守本声明，本站概不承担任何法律责任。本站严禁钓鱼，诈骗等违法站使用，抓到就拉黑，且不退款，并上报公安机关。</p>
+					</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- footer Start -->
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-manu">
+					</div>
+					
+					<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1276107121'%3E%3C/span%3E%3Cscript src='https://s11.cnzz.com/z_stat.php%3Fid%3D1276107121%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+					
+				<p class="copyright">Copyright 2018 &copy; Design & Developed by 琲鸳. All rights reserved.
+					<br><a href="http://www.miitbeian.gov.cn/" target="_blank"> 赣ICP备17000039号-7</a>
+						</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-git.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="assets/by1/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/by1/plugins/slick-carousel/slick/slick.min.js"></script>
+    <!--  -->
+    <script src="assets/by1/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <!-- Mixit Up JS -->
+    <script src="assets/by1/plugins/mixitup/dist/mixitup.min.js"></script>
+    <!-- <script src="plugins/count-down/jquery.lwtCountdown-1.0.js"></script> -->
+    <script src="assets/by1/plugins/SyoTimer/build/jquery.syotimer.min.js"></script>
+
+    <!-- Form Validator -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+
+    <script src="assets/by1/js/script.js"></script>
+
+	<script type="text/javascript">
+		$('form').submit(function(event) {
+			var longurl = $('input[name="longurl"]').val();
+			$.post("dwz.php",{longurl: longurl},function(json){
+				if(json.code == 1){
+				    $('#result').html(json.ae_url);
+				}else{
+				  layer.msg(json.msg, {icon: 7});
+				}
+			},'json');
+			return false;
+		});
+	</script>
+
+  </body>
+  </html>

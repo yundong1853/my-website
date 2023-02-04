@@ -1,0 +1,50 @@
+<?php
+/*
+Template Name:引导跳转风格
+Description:灰色引导跳转模板
+Version:3.5
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1_eOuThYaK1RjSZFnq6y80pXav.jpg
+*/
+?>
+<!DOCTYPE html>
+<html style="font-size:7vw;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{title}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="wap-font-scale" content="no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<script type="text/javascript">{js}</script>
+<script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+<script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+<style type="text/css">
+  body,div,form,input,li,ol,p,textarea,ul{margin:0;padding:0;font-family: "Microsoft YaHei";color: #fff;}
+  body{background:#fff;color:#3f3f3f;font-family:Apple LiGothic Medium,SimHei,Geneva,Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-appearance:none;width:100%;}
+  body p {color: white;text-align: center;line-height: 25px;}
+  img{border:0 none}
+  hr{margin: 10px}
+  .fh_jt{width:15rem;height:4.28rem}
+  .fh_jt img{width:15rem;height:4.28rem}
+  .fh_wz{height:6.9rem;line-height:1rem;text-align:center;color:#333}
+  .fh_tp{width:12.44rem;height:10rem;margin:0 auto}
+  .fh_tp img{width:12.44rem;height:10rem;text-align:center}
+  #sff{margin-top: 40px;}
+  #{rid} {position: relative;margin: 0 auto;padding: 6px 15%;color: #fff;border-radius: 3px;border: 1px solid #fff;text-decoration:none;}
+  #{rid}:hover{border: 1px solid #F44336;background: #F44336;}
+</style>
+</head>
+<body style="background-color:#f5f5f5;text-align: center;">
+<a href="{longurl}" id="{rid}" rel="noreferrer" style="display: none;"></a><br>
+<div id="test" style="">
+  <div class="fh_jt"><img src="{jt}" alt="右上角箭头"></div>
+  <div class="fh_wz">点击屏幕右上角[...]<br/>用 浏览器 打开  </div>
+  <div class="fh_tp"><img src="{tp}" alt="浏览器打开"></div>
+</div>
+<script type="text/javascript" src="/assets/plugin/jump/main.php?ver={rid}"></script>
+</body>
+</html>

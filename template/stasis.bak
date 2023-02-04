@@ -1,0 +1,142 @@
+<?php 
+global $stasis;
+$stasis =array (
+  'BrowserQuest.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => 'BrowserQuest',
+      'description' => '浏览器中的标题',
+    ),
+  ),
+  'default.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => 'Welcome',
+      'description' => '浏览器中的标题',
+    ),
+    'btn_str' => array (
+      'name' =>'按钮文字',
+      'values' => '点击这里进入网站',
+      'description' => '第一个按钮的文字',
+    ),
+    'btn_url' => array (
+      'name' =>'按钮默认地址',
+      'values' => 'http://www.aeink.com',
+      'description' => '第一个按钮的默认地址',
+    ),
+    'gg_text' => array (
+      'name' =>'广告语',
+      'values' => '重要公告：本站永久免费使用！',
+      'description' => '广告语设置',
+    ),
+    'img_url' => array (
+      'name' =>'图片地址',
+      'values' => 'http://ww2.sinaimg.cn/large/a15b4afely1fnxjsi45bfj20hr0aymye.jpg',
+      'description' => '默认图片的地址！',
+    ),
+    'foot' => array (
+      'name' =>'底部文字',
+      'values' => '免责声明：本站永久免费! 短网址均由用户生成，所跳转网站内容均与本站无关! 如其站点违规，本站对其概不负责，亦不承担任何法律责任。',
+      'description' => '最下方的底部描述文字',
+    ),
+
+  ),
+  'hitokoto.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => '提示',
+      'description' => '浏览器中的标题',
+    ),
+    'msg' => array (
+      'name' =>'提示语',
+      'values' => '免责声明：本站永久免费！短网址均由用户生成，所跳转网站内容均与本站无关！',
+      'description' => '默认提示提示语',
+    ),
+    'foot' => array (
+      'name' =>'底部描述',
+      'values' => '免责声明：本站永久免费! 短网址均由用户生成，所跳转网站内容均与本站无关! 如其站点违规，本站对其概不负责，亦不承担任何法律责任。',
+      'description' => '默认底部描述文字',
+    ),
+  ),
+  'hitokoto2.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => '提示',
+      'description' => '浏览器中的标题',
+    ),
+  ),
+  'middle.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => '提示',
+      'description' => '浏览器中的标题',
+    ),
+    'msg' => array (
+      'name' =>'提示语',
+      'values' => '如需浏览，请长按网址复制后使用浏览器访问',
+      'description' => '默认提示提示语',
+    ),
+  ),
+  'middleb.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => '提示',
+      'description' => '浏览器中的标题',
+    ),
+    'msg' => array (
+      'name' =>'提示语',
+      'values' => '互联网短视频整治期间，平台将统一暂停直接播放。如需观看，仍可复制网址使用浏览器播放。',
+      'description' => '默认提示提示语',
+    ),
+  ),
+  'taobao.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => '使用浏览器打开',
+      'description' => '浏览器中的标题',
+    ),
+    'msg' => array (
+      'name' =>'提示语',
+      'values' => '复制本站网址，到其它浏览器打开',
+      'description' => '默认提示提示语',
+    ),
+  ),
+  'weiwei.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => 'Welcome',
+      'description' => '浏览器中的标题',
+    ),
+    'msg' => array (
+      'name' =>'提示语',
+      'values' => '免责声明：本站永久免费！短网址均由用户生成，所跳转网站内容均与本站无关！',
+      'description' => '默认提示提示语',
+    ),
+    'foot' => array (
+      'name' =>'提示语',
+      'values' => '免责声明：本站永久免费! 短网址均由用户生成，所跳转网站内容均与本站无关! 如其站点违规，本站对其概不负责，亦不承担任何法律责任。',
+      'description' => '默认底部描述文字',
+    ),
+  ),
+  'workerman.uomg' => 
+  array (
+    'title' => array (
+      'name' =>'浏览器标题',
+      'values' => 'Welcome',
+      'description' => '浏览器中的标题',
+    ),
+  ),
+
+
+
+
+);
+

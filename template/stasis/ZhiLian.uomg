@@ -1,0 +1,86 @@
+<?php
+/*
+Template Name:直链主题
+Description:QQ/微信内直接打开
+@version:4.5
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1PI99UNTpK1RjSZR0762EwXXaH.png
+*/
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{title}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="wap-font-scale" content="no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<script type="text/javascript">{js}</script>
+<script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+<script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/zclip/1.1.2/jquery.zclip.min.js"></script>
+<style type="text/css">
+  body,div,form,input,li,ol,p,textarea,ul{margin:0;padding:0;font-family: "Microsoft YaHei";color: #fff;}
+  body{background:#fff;color:#3f3f3f;font-family:Apple LiGothic Medium,SimHei,Geneva,Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-appearance:none;width:100%;font-size:12px;}
+  body p {color: white;text-align: center;line-height: 25px;}
+  img{border:0 none}
+  hr{margin: 10px}
+  .fh_jt{width:15rem;height:4.28rem}
+  .fh_jt img{width:15rem;height:4.28rem}
+  .fh_wz{height:6.9rem;line-height:1rem;font-size:.7rem;text-align:center;color:#333}
+  .fh_tp{width:12.44rem;height:10rem;margin:0 auto}
+  .fh_tp img{width:12.44rem;height:10rem;text-align:center}
+  #sff{margin-top: 40px;}
+</style>
+</head>
+<body style="background: url({backimage}) no-repeat fixed top;text-align: center;">
+<div id="Zl"> 
+</div>
+<script>
+  $('#Zl').html('<iframe width="100%" id="{rid}" src="'+longurl+'" frameborder="0"></iframe>');
+  $(document).ready(function(){
+    $(window).resize(function(){fix_height();}).resize();
+  });
+  if(!/*@aijquery@*/0){//如果不是IE，IE的条件注释  
+    $("#{rid}").onload=function(){
+      fix_height();
+      $("#{rid}").contentWindow.focus();
+      $("#{rid}").load(function(){$('body').css('background','');});
+    };
+  }else{
+    $("#{rid}").onreadystatechange = function(){//IE下的节点都有onreadystatechange这个事件
+      if($("#{rid}").readyState == "complete"){
+        fix_height();
+        $("#{rid}").contentWindow.focus();
+        $("#{rid}").load(function() {$('body').css('background','');});
+      }
+    };
+  }
+  $.getJSON("/api.php",{method:'tj',uid:uid},function(data){});
+  if ({t_method} == 1) {
+    $.getJSON('/api.php?method=get.title',{url:longurl}, function(json) {
+      document.title = json.title;
+    });
+  }else if ({t_method} == 2) {
+    document.title= longurl;
+  }
+  if ({pc_stop} == 1) {
+    if(navigator.userAgent.indexOf("Windows")>0){
+      window.location.href= longurl;
+    }
+  }
+  if ({t_report} == 1) {
+    if(navigator.userAgent.indexOf("QQ/")>0){
+      $(body).append('<a href="https://guanjia.qq.com/online_server/m_report.html?shareUrl=https%3A%2F%2Fwww.aihaoyue.com%2F3262.html&_wv=7" style="position:absolute;bottom:2rem;right:2rem;height:3.1rem;width:3.1rem;font-size:.5rem;line-height:3.1rem;text-align:center;background:url(https://ae01.alicdn.com/kf/HTB1V3iZbfvsK1RjSspd763ZepXaC.png);color:#fff;background-position:50% 50%;border-radius:1rem"></a>');
+    }else if(navigator.userAgent.indexOf("MicroMessenger")>0){
+      $(body).append('<a href="https://weixin110.qq.com/security/readtemplate?t=weixin_report/w_type&scene=34" style="position:absolute;bottom:2rem;right:2rem;height:3.1rem;width:3.1rem;font-size:.5rem;line-height:3.1rem;text-align:center;background:url(https://ae01.alicdn.com/kf/HTB1V3iZbfvsK1RjSspd763ZepXaC.png);color:#fff;background-position:50% 50%;border-radius:1rem"></a>');
+    }
+  }
+  function fix_height(){$("#{rid}").attr("height", (($(window).height())-5) + "px");}
+</script>
+</body>
+</html>

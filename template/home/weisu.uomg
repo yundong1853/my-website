@@ -1,0 +1,73 @@
+﻿<?php
+/*
+Template Name:微速云模板
+Description:微速云防红模板
+Version:3.5
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1VXugTgHqK1RjSZFgq6y7JXXad.jpg
+*/
+?>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="assets/001/css/style.css" rel='stylesheet' type='text/css' />
+<title>{name} - {sitename}</title>
+<meta name="keywords" content="{keywords}"/>
+<meta name="description" content="{description}"/>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#start').click(function(){
+        var url = $("input[id='longurl']").val();
+        $.ajax({
+          type:"post",
+          url: "dwz.php",
+          dataType: "json",
+          data:{longurl:url},
+          async:true,
+          success: function(a) {
+              var strJson = JSON.stringify(a) 
+              var data = $.parseJSON(strJson);
+              console.log(data); 
+              if(data.ae_url){
+                  $('#dwzdate').html(data.ae_url);
+                  GetQr(data.longurl);
+              }else{
+                alert(data.msg);
+              }
+          },
+          error: function(a) {
+            alert("失败！！");
+          }
+        });
+    });
+  });
+  function GetQr(url){
+      var qrcode = $('#qrcode');
+      qrcode.html('');
+      qrcode.qrcode({
+          width: 200,
+          height: 200,
+          text: url
+      });
+      qrcode.removeClass('am-hide');
+  }
+</script>
+</head>
+<body style="background-image: url(https://ww4.sinaimg.cn/large/0060lm7Tly1fk7i8iwdmlj31hc0xcq95.jpg);background-attachment: fixed;background-repeat: no-repeat;background-size: cover;-moz-background-size: cover;">
+	<h1></h1>
+	<div class="app-location">
+		<h2>{name}</h2>
+		<input type="text"  class="text" id="longurl" placeholder="{siteurl}">
+		<div class="submit"><input type="button" id="start" value="生成防红链接" ></div>
+		<div class="clear"></div>
+        <p id="dwzdate">您还没有生成数据</p>
+        <hr>
+        <p id="qrcode"></p>
+	</div>
+</body>
+</html>

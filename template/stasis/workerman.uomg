@@ -1,0 +1,117 @@
+<?php
+/*
+Template Name:蝌蚪聊天室
+Description:小蝌蚪聊天室，多人在线
+Version:3.1
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1OayjTmzqK1RjSZFpq6ykSXXaA.jpg
+*/
+?>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{title}</title>
+    <link rel="stylesheet" type="text/css" href="/assets/plugin/workerman/css/main.css" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" />    
+    <meta name="apple-mobile-web-app-capable" content="YES">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/assets/plugin/workerman/images/apple-touch-icon.png"/>
+    <meta property="fb:app_id" content="149260988448984" />
+    <meta name="title" content="Workerman-todpole!" />
+    <link rel="image_src" href="/assets/plugin/workerman/images/fb-image.jpg" />
+    <script type="text/javascript">{js}</script>
+    <script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+    <link rel="stylesheet" href="/assets/plugin/workerman/css/jquery.fileupload.css">
+    <script src="/assets/plugin/workerman/js/lib/jquery.ui.widget.js"></script>
+    <script src="/assets/plugin/workerman/js/lib/jquery.iframe-transport.js"></script>
+    <script src="/assets/plugin/workerman/js/lib/jquery.fileupload.js"></script>
+  </head>
+  <body>
+    <a style="display: none;" href="" id="{rid}" rel="noreferrer"></a>
+    <canvas id="canvas"></canvas>
+
+    <div id="ui">
+      <div id="fps"></div>
+      <input id="chat" type="text" />
+      <div id="chatText"></div>
+      <div id="instructions">
+        <span class="btn btn-success fileinput-button">
+        <i class="glyphicon glyphicon-plus"></i>
+          <span><img src="/assets/plugin/workerman/images/upload_icon.png" id="icon"></span>
+          <input id="fileupload" type="file" name="files[]" multiple="">
+        </span>
+        <br>
+        昵称：<input type="text" id="nick" class="input"><br>
+        我是：<b style="color:rgb(192, 253, 247)">男生</b>&nbsp;<input type="radio" id="sex1" name="sex" >&nbsp;&nbsp;<b style="color:rgb(255, 181, 197)">女生</b>&nbsp;<input type="radio" id="sex0" name="sex">
+      </div>
+      <aside id="info">
+      <section id="share">
+      </section>
+      <section id="wtf">
+        <!-- 尊重他人劳动成果，请保留下面原作者相关链接，否则会导致无法使用 -->
+        <h2>powered&nbsp;by&nbsp;<a rel="external" href="http://workerman.net/workerman-todpole" target="_blank">workerman</a></h2>
+        <!-- 尊重他人劳动成果，请保留原作者相关链接，否则会导致无法使用 -->
+      </section>
+      </aside>
+      <aside id="frogMode">
+                <h3>Frog Mode</h3>
+                <section id="tadpoles">
+                    <h4>Tadpoles</h4>
+                    <ul id="tadpoleList">
+                    </ul>
+                </section>
+                <section id="console">
+                    <h4>Console</h4>
+                </section>
+      </aside>
+    
+      <div id="cant-connect">
+        与服务器断开连接了。您可以重新刷新页面。
+      </div>
+      <div id="unsupported-browser">
+        <p>
+          您的浏览器不支持 <a rel="external" href="http://en.wikipedia.org/wiki/WebSocket">WebSockets</a>.
+          推荐您使用以下浏览器
+        </p>
+        <ul>        
+          <li><a rel="external" href="http://www.google.com/chrome">Google Chrome</a></li>
+          <li><a rel="external" href="http://apple.com/safari">Safari 4</a></li>
+          <li><a rel="external" href="http://www.mozilla.com/firefox/">Firefox 4</a></li>
+          <li><a rel="external" href="http://www.opera.com/">Opera 11</a></li>
+        </ul>
+        <p>
+          <a href="#" id="force-init-button">仍然浏览!</a>
+        </p>
+      </div>
+      
+    </div>
+
+    <script src="/assets/plugin/workerman/js/lib/parseUri.js"></script> 
+    <script src="/assets/plugin/workerman/js/lib/modernizr-1.5.min.js"></script>
+    <script src="/assets/plugin/workerman/js/lib/Stats.js"></script>
+    
+    <script src="/assets/plugin/workerman/js/App.js"></script>
+    <script src="/assets/plugin/workerman/js/Model.js"></script>
+    <script src="/assets/plugin/workerman/js/Settings.js"></script>
+    <script src="/assets/plugin/workerman/js/Keys.js"></script>
+    <script src="/assets/plugin/workerman/js/WebSocketService.js"></script>
+    <script src="/assets/plugin/workerman/js/Camera.js"></script>
+    
+    <script src="/assets/plugin/workerman/js/Tadpole.js"></script>
+    <script src="/assets/plugin/workerman/js/TadpoleTail.js"></script>
+    
+    <script src="/assets/plugin/workerman/js/Message.js"></script>
+    <script src="/assets/plugin/workerman/js/WaterParticle.js"></script>
+    <script src="/assets/plugin/workerman/js/Arrow.js"></script>
+    <script src="/assets/plugin/workerman/js/formControls.js"></script>
+    
+    <script src="/assets/plugin/workerman/js/Cookie.js"></script>
+    <script src="/assets/plugin/workerman/js/main.js"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/main.php?ver={rid}"></script>
+    
+  </body>
+</html>

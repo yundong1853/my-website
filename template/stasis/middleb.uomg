@@ -1,0 +1,53 @@
+<?php
+/*
+Template Name:QQ内置提醒页面
+Description:互联网短视频整治期间，平台将统一暂停直接播放。如需观看，仍可复制网址使用浏览器播放。
+Version:3.2
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1CV1mTgHqK1RjSZJnq6zNLpXaS.jpg
+*/
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta content="false" name="twcClient" id="twcClient"/>
+    <meta name="aplus-touch" content="1"/>
+    <script type="text/javascript">{js}</script>
+    <script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+	<style>
+	  body {    margin: 0;
+	    color: #222;
+	    font-size: 12px;
+	    padding: 120px 15px 20px;
+	    text-align: center;
+	  }
+	  .ui-notice {
+	    font-size: 18px;
+	    margin-bottom: 13px;
+	    font-weight: normal;
+	  }
+	  .url {
+	    padding: 5px 0;
+	    word-break: break-all;
+	  }
+	</style>
+</head>
+<body>
+  <section>
+    <a style="display: none;" href="" id="{rid}" rel="noreferrer"></a><br>
+    <p class="ui-notice">{msg}</p>
+    <div class="url" id="url">{longurl}</div>
+  </section>
+</body>
+<script type="text/javascript" src="/assets/plugin/jump/main.php?ver={rid}"></script>
+</html>

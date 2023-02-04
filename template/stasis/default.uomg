@@ -1,0 +1,62 @@
+<?php
+/*
+Template Name:优启梦默认模板
+Description:跳转页面棕色基调,默认模板
+Version:3.1
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1EKahTkvoK1RjSZFDq6xY3pXab.jpg
+*/
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{title}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="wap-font-scale" content="no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<script type="text/javascript">{js}</script>
+<script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+<script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+<style type="text/css">
+  body,div,form,input,li,ol,p,textarea,ul{margin:0;padding:0;font-family: "Microsoft YaHei";color: #fff;}
+  body{background:#fff;color:#3f3f3f;font-family:Apple LiGothic Medium,SimHei,Geneva,Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-appearance:none;width:100%;font-size:12px;}
+  body p {color: white;text-align: center;line-height: 25px;}
+  img{border:0 none}
+  hr{margin: 10px}
+  .fh_jt{width:15rem;height:4.28rem}
+  .fh_jt img{width:15rem;height:4.28rem}
+  .fh_wz{height:6.9rem;line-height:1rem;font-size:.7rem;text-align:center;color:#333}
+  .fh_tp{width:12.44rem;height:10rem;margin:0 auto}
+  .fh_tp img{width:12.44rem;height:10rem;text-align:center}
+  #sff{margin-top: 40px;}
+  #{rid} {position: relative;margin: 0 auto;padding: 6px 15%;color: #fff;border-radius: 3px;border: 1px solid #fff;text-decoration:none;}
+  #{rid}:hover{border: 1px solid #F44336;background: #F44336;}
+</style>
+</head>
+<body style="background-color:#383335;text-align: center;">
+<div id="Pan_QQ" style="margin: 0 auto;width: 330px;">
+  <!--自定义修改区-->
+  <div id="sff">
+    <a href="{btn_url}" id="{rid}" rel="noreferrer">{btn_str}</a><br>
+    <p style="font-size: 15px;margin-top: 30px;">{gg_text}</p>
+  </div>
+  <hr>
+  <img style="margin: 70px 0" width=330 src="{img_url}">
+  <footer>
+    <p style="font-size: 12px;margin-top: 15px;">{foot}</p>
+  </footer>
+  <!--自定义修改区-->
+</div>
+<div id="Pan_WX" style="display: none;">
+  <div class="fh_jt"><img src="https://ae01.alicdn.com/kf/HTB1HFGjTjTpK1RjSZKP7613UpXax.png" alt="右上角箭头"></div>
+  <div class="fh_wz">点击屏幕右上角[...]<br/>用 浏览器 打开  </div>
+  <div class="fh_tp"><img src="https://ae01.alicdn.com/kf/HTB1keGaTmzqK1RjSZFL763n2XXaQ.png" alt="浏览器打开"></div>
+</div>
+<script type="text/javascript" src="/assets/plugin/jump/main.php?ver={rid}"></script>
+</body>
+</html>

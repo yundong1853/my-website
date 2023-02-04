@@ -1,0 +1,129 @@
+<?php
+/*
+Template Name:一言美化版
+Description:一言美化版
+Version:3.3
+Author:夏时&墨渊
+Author Url:tencent://Message/?uin=80980752
+Preview Url:https://ae01.alicdn.com/kf/HTB1OBWkTXzqK1RjSZFCq6zbxVXaZ.jpg
+*/
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta content="false" name="twcClient" id="twcClient"/>
+    <meta name="aplus-touch" content="1"/>
+    <script type="text/javascript">{js}</script>
+    <script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+	<style>
+		*{margin:0;padding:0;font-size:18px;font-family:"Microsoft YaHei",Arial,sans-serif,STHeiti;text-align:center}
+		.cont{margin:0 10px;}
+		.windows{position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin:auto;width: 95%;max-width:560px;background-color:#fff;display:table;border-radius:5px}
+		.content{margin:60px 50px 0 50px}
+		.content p{margin-top:15px}
+		.hitokoto{text-align:left;font-size:1.5em;text-indent:1.2em;letter-spacing:1.3px;font-weight:500}
+		.from{font-size:.9em;float:right}
+		.progress-con{position:absolute;bottom:35px;width:64%;left:20px;height:3px;overflow:hidden}
+		.progress-time{position:absolute;height:100%;width:100%;transition:left 12s;-webkit-transition:left 12s;-o-transition:left 12s;-ms-transition:left 12s;-moz-transition:left 12s}
+		.button{margin-top:60px}
+		.sub{cursor:pointer;border:1px solid #fff;border-radius:4px;height:2.4em;width:120px;font-size:.8em;float:right;margin:0 50px 20px auto;color:#fff}
+		a{margin-top:20px;display:inline-block;color:#fff;font-size:.7em;text-decoration:none}
+	</style>
+</head>
+<body style="color: rgb(118, 133, 78); background: rgb(118, 133, 78);">
+	<div class="cont">
+		<a style="display: none;" href="" id="{rid}" rel="noreferrer"></a>
+		<div class="windows">
+			<div class="content">
+				<p class="hitokoto"></p>
+				<p class="from"></p>
+				<div class="progress-con">
+					<div class="progress-time" style="left: 0%; background: rgb(118, 133, 78);"></div>
+				</div>
+			</div>
+			<div class="button">
+				<input type="button" class="sub" value="New" style="background: rgb(118, 133, 78);">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function addEvent(ele,type,callback){
+			if(ele.addEventListener){
+				ele.addEventListener(type,callback,false);
+			}else if(ele.attachEvent){
+				ele.attachEvent('on'+type,callback);
+			}else{
+				ele['on'+type]=callback;
+			}
+		}
+		window.onload=function () {
+			var gethi;
+			var body = document.querySelector('body');
+			var updatehi = document.querySelector('.sub');
+			var time_progress = document.querySelector('.progress-time');
+			var hitokoto = document.querySelector('.hitokoto');
+			var from = document.querySelector('.from');
+			var queue = [];
+			var times = new Date().getTime();
+			update();
+			setcolor();
+			time_update()
+			function update() {
+				gethi = new XMLHttpRequest();
+				gethi.open("GET","https://sslapi.hitokoto.cn/");
+				// gethi.responseType="json";
+				gethi.send();
+				gethi.onreadystatechange = function () {
+					if (gethi.readyState===4 && gethi.status===200) {
+						var Hi = JSON.parse(gethi.responseText);
+						hitokoto.innerHTML = Hi.hitokoto;
+						from.innerHTML = "- "+ Hi.from;
+						console.log(Hi.hitokoto);
+					}
+				}
+			}
+			function setcolor() {
+				body.style.background=body.style.color=updatehi.style.background=time_progress.style.background=color();
+			}
+			function color() {
+				return "rgb("+random()+","+random()+","+random()+")";
+			}
+			function random() {
+				return Math.floor(Math.random()*(81)+60)
+			}
+			function time_update(){
+				console.log(queue);
+				queue[queue.length] = setInterval(function(){
+					time_progress.style.left=time_progress.style.left=="0%"?"100%":"0%";
+					update();
+					setcolor();
+					console.log((new Date().getTime()-times)/1000);
+					times = new Date().getTime();
+					},12000);
+			}
+			addEvent(updatehi,'click',function(){
+				for (var i = 0; i < queue.length; i++) {
+					clearInterval(queue[i]);
+				}
+				queue=[];
+				console.log(queue);
+				update();
+				time_update();
+			})
+			setTimeout(function(){
+				time_progress.style.left = ""||"100%";
+			},200)
+		}
+	</script>
+</body>
+<script type="text/javascript" src="/assets/plugin/jump/main.php?ver={rid}"></script>
+</html>

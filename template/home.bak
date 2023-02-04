@@ -1,0 +1,89 @@
+<?php 
+global $home;
+$home =array (
+  '51fh.uomg' => 
+  array (
+    'gg' => 
+    array (
+      'name' => '公告',
+      'type' => 'textarea',
+      'values' => '<p>测试公告</p><p>测试</p<p>测试</p><p>测试</p>',
+      'description' => '首页中的公告，支持HTML!',
+    ),
+  ),
+  'amaze.uomg' => 
+  array (
+    'nav_str' => 
+    array (
+      'name' => '导航文字',
+      'type' => 'input',
+      'values' => '优启梦防洪',
+      'description' => '导航栏中的第一个按钮文字',
+    ),
+    'nav_url' => 
+    array (
+      'name' => '导航链接',
+      'type' => 'input',
+      'values' => 'http://www.aeink.com',
+      'description' => '导航栏中的第一个按钮地址',
+    ),
+    'msg' => 
+    array (
+      'name' => '提示语',
+      'type' => 'input',
+      'values' => '例如weibo.cn，只需输入weibo.cn，点击按钮生成即可',
+      'description' => '页面中的提示语',
+    ),
+    'gg' => 
+    array (
+      'name' => '广告',
+      'type' => 'textarea',
+      'values' => '<ul style="line-height: 50px;list-style-type:none;font-size: 14px;">
+						<li style="line-height: 50px;"><a rel="nofollow" href="#" style="color:#ff0000;" target="_blank" >那朵沉香的三月鲜花，只为你灿烂绽放</a></li>
+						<li style="line-height: 50px;"><a rel="nofollow" href="#" style="color:#999999;" target="_blank" >广告位出租10/月</a></li>
+						<li style="line-height: 50px;"><a rel="nofollow" href="#" style="color:#999999;" target="_blank" >广告位出租10/月</a></li>
+						<li style="line-height: 50px;"><a rel="nofollow" href="#" style="color:#999999;" target="_blank" >广告位出租10/月</a></li>
+						<li style="line-height: 50px;"><a rel="nofollow" href="#" style="color:#999999;" target="_blank" >广告位出租10/月</a></li>
+						<li style="line-height: 50px;"><a rel="nofollow" href="#" style="color:#999999;" target="_blank" >广告位出租10/月</a></li>
+					</ul>',
+      'description' => '首页中的广告设置,支持HTML',
+    ),
+  ),
+  'default.uomg' => 
+  array (
+    'msg' => 
+    array (
+      'name' => '提示语',
+      'type' => 'input',
+      'values' => 'Tx网址防洪工具',
+      'description' => '图片下面的提示语!',
+    ),
+  ),
+  'm6duin.uomg' => 
+  array (
+    'msg' => 
+    array (
+      'name' => '提示语',
+      'type' => 'input',
+      'values' => '带统计的短网址和二维码',
+      'description' => '首页中的提示语！!',
+    ),
+    'delay' => 
+    array (
+      'name' => '延迟',
+      'type' => 'input',
+      'values' => '5000',
+      'description' => '读取生成次数的延迟，时间越长，负载越小，必须是整数!',
+    ),
+  ),
+  'redurl.uomg' => 
+  array (
+    'title' => 
+    array (
+      'name' => '标题',
+      'type' => 'input',
+      'values' => '短网址生成工具',
+      'description' => '首页中的标题!',
+    ),
+  ),
+);

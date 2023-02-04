@@ -1,0 +1,200 @@
+<?php
+/*
+Template Name:amazeui模板
+Description:amazeui模板，简约界面！
+Version:3.0
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1gjOiTjTpK1RjSZKPq6y3UpXaL.jpg
+*/
+?>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- 网页关键词 -->
+<title>{name} - {sitename}</title>
+<meta name="keywords" content="{keywords}"/>
+<meta name="description" content="{description}"/>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.css">
+<!-- 网页背景 -->
+<style>
+	.bg{background-image:url(assets/images/bgr.jpg);background-repeat:no-repeat;background-attachment:fixed;background-position:center}
+  #longurl{height: 32px;}
+	.footer{position:relative;left:0;bottom:0;width:100%;overflow:hidden}
+	.footer p{color:#7f8c8d;margin:0;padding:15px;text-align:center;background:#17263e}
+	.footer p a{color:#7f8c8d}
+	.footer p a:hover{color:#bbb}
+</style>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<header class="am-topbar am-topbar-fixed-top am-sans-serif">
+<div class="am-container">
+	<h1 class="am-topbar-brand">
+	<a href="index.php"><font color="#19a7f0"><i class="am-icon-diamond am-icon-sm"></i></font>{name}</a>
+	</h1>
+	<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}">
+	<span class="am-sr-only">导航切换</span>
+	<span class="am-icon-bars"></span>
+	</button>
+	<nav class="am-collapse am-topbar-collapse am-fr" id="collapse-head">
+	<ul class="am-nav am-nav-pills am-topbar-nav">
+		<li><a href="#">首页</a></li>
+		<li><a href="{nav_url}">{nav_str}</a></li>
+		<li><a href="http://t.cn/RO1pdHm">报毒查询</a></li>
+	</ul>
+	</nav>
+</div>
+</header>
+<!-- 网页背景 -->
+<div class="bg am-sans-serif">
+	</br>
+	<div class="am-container am-margin-vertical-xl">
+		<center style="margin-top: 100px;"><img src="https://url.cn/5XSRB8W" width="160px" class="am-img-responsive"></center>
+		<div class="am-u-lg-12 am-padding-vertical">
+			<hr>
+			<!-- 表单提交部分 -->
+      <form action="" class="am-form am-form-horizontal">
+
+          <div class="am-form-group am-round">
+            <div class="am-u-sm-3">
+              <select data-am-selected="{btnSize: 'sm', btnStyle: 'danger'}" name="type">
+                <option value="ty">通用链接</option>
+                <option value="qq">ＱＱ防洪</option>
+                <option value="vx">微信防洪</option>
+              </select>
+            </div>
+            <div class="am-u-sm-9">
+              <input type="url" name="longurl" id="longurl" class="am-form-field am-radius am-text-center" value="" required/>
+            </div>
+          </div>
+          <div class="am-form-group am-text-center">
+            <label class="am-radio-inline">
+              <input type="radio" name="dwzapi" value="2" checked>t.cn
+            </label>
+            <label class="am-radio-inline">
+              <input type="radio" name="dwzapi" value="3">url.cn
+            </label>
+            <label class="am-radio-inline">
+              <input type="radio" name="dwzapi" value="7"> sinaurl.cn
+            </label>
+          </div>
+
+					<div class="am-form-group">
+						<button type="submit" class="am-btn am-btn-success am-btn-sm am-btn-block am-round" id="start">生成短链接</button>
+					</div>
+				
+      </form>
+			<div class="am-u-md-12 am-u-sm-centered am-margin-vertical am-text-center">
+				<center>
+					<code>{msg}</code>
+					</br></br>
+					赞助商广告
+					<hr>
+					{gg}
+				</center>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">防洪短网址
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd" >
+      <p id="dwzdate"></p>
+      <p id="qrcode"></p>
+    </div>
+  </div>
+</div>
+<!-- 网页底部 -->
+<footer class="footer">
+        <p class="am-text-sm">Powered by <a href="http://www.aeink.com" target="_blank" rel="author">{name}</a> © 2016-2017
+		<!-- 统计代码 -->
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_{cnzzid}'%3E%3C/span%3E%3Cscript src='https://s11.cnzz.com/stat.php%3Fid%3D{cnzzid}' type='text/javascript'%3E%3C/script%3E"));</script>
+		</p>
+</footer>
+<script src="https://lib.baomitu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/amazeui/2.3.0/js/amazeui.min.js"></script>
+<script src="https://lib.baomitu.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script>
+      $(document).ready(function(){
+		    var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?{bdtjid}";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        $('#longurl').focus(function() {
+          console.log('123');
+          $('#longurl').val('http://')
+        });
+        $('form').submit(function(event) {
+          var data = $("form").serialize();
+          $.getJSON('dwz.php', data, function(json, textStatus) {
+            if(json.ae_url){
+                $('#dwzdate').html(json.ae_url);
+                var $modal = $('#your-modal');
+                var qrcode = $('#qrcode');
+                $modal.modal();
+                $modal.css('margin-top',0);
+                qrcode.html('');
+                qrcode.qrcode({
+                    width: 200,
+                    height: 200,
+                    text: json.longurl
+                });
+                qrcode.removeClass('am-hide');
+            }else{
+                alert(json.msg);
+            }
+            console.log(json);
+          });
+          return false;
+        });
+        /*$('#start').click(function(){
+          $.ajax({
+            type:"post",
+            url: "dwz.php",
+            dataType: "json",
+            data:{longurl:$("input[id='longurl']").val()},
+            async:true,
+            success: function(a) {
+                var strJson = JSON.stringify(a) 
+                //alert(strJson);
+                var data = $.parseJSON(strJson);
+                if(data.ae_url){
+                    $('#dwzdate').html(data.ae_url);
+                    var $modal = $('#your-modal');
+                    var qrcode = $('#qrcode');
+                    $modal.modal();
+                    $modal.css('margin-top',0);
+                    qrcode.html('');
+                    qrcode.qrcode({
+                        width: 200,
+                        height: 200,
+                        text: data.longurl
+                    });
+                    qrcode.removeClass('am-hide');
+                    console.log(data); 
+                }else{
+                    alert(data.msg);
+                }
+
+            },
+            error: function(a) {
+              alert("失败！！");
+            }
+          });
+        });*/
+      });
+
+</script>
+</body>
+</html>

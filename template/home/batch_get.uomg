@@ -1,0 +1,106 @@
+﻿<?php
+/*
+Template Name:layui批量生成模板
+Description:批量生成模板，主要拉黑阀值
+Version:4.0
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB14yYXUQvoK1RjSZFD760Y3pXa1.png
+*/
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{name} - {sitename}</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="assets/user/layui/css/layui.css"  media="all">
+  <style type="text/css">
+    html {background-color: #f2f2f2;color: #666;}
+    .layui-center {text-align: center;}
+    .layui-bg-white{background-color: #fff;}
+    .layui-row{border-radius: 10px;}
+    .layui-carousel img{width: 100%;height: 100%;}
+    .layui-qlogo img{border-radius: 50%;border: 6px solid #efefef;margin: 15px 0;}
+    .layui-tag ul{margin: 15px 0;}
+    .layui-tag .title{font-size: 20px;}
+    .layui-footer,.layui-search,.layui-result{padding: 20px;}
+    .layui-search .layui-input {height: 42px;width: 100%;}
+  </style>
+</head>
+<body>
+<!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->   
+   
+<div class="layui-container">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+        <div class="layui-row layui-bg-white layui-tab layui-tab-brief" lay-filter="demo" style="margin-top: 15px;">
+          <ul class="layui-tab-title">
+            <li class="layui-this">批量生成</li>
+          </ul>
+          <div class="layui-tab-content layui-center">
+            <div class="layui-tab-item layui-show">
+              <div class="layui-search">
+                <div class="layui-form">
+                  <div class="layui-input-inline">
+                    <input type="radio" name="type" value="qq" title="QQ" checked="">
+                    <input type="radio" name="type" value="vx" title="VX">
+                  </div>
+                  <hr>
+                  <textarea name="url" placeholder="请输入生成网址 一行一个" class="layui-textarea"></textarea>
+                  <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="s">立即提交</button> 
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="layui-row layui-center layui-bg-white" style="margin-top: 15px;">
+          <div class="layui-result" id="view">
+          </div>
+        </div>
+        <div class="layui-row layui-center layui-bg-white" style="margin-top: 15px;">
+          <div class="layui-footer">© CopyRight 2019 {name}</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/user/layui/layui.js" charset="utf-8"></script>
+<script>
+layui.use(['layer', 'form', 'element', 'upload', 'util', 'laytpl'], function(){
+  var $ = layui.jquery
+  ,layer = layui.layer
+  ,form = layui.form
+  ,element = layui.element
+  ,laytpl = layui.laytpl;
+
+  //监听提交
+  form.on('submit(s)', function(data){
+    var field = data.field;
+    console.log(field.url);
+    if(!field.url)   return layer.msg('生成网址不能为空！');
+    var loading = layer.msg('生成中,请稍候！', { icon: 16 ,shade: 0.01,time: 2000000});
+
+    var strArray = field.url.split(/[\s\n]/);
+    console.log(strArray);
+    for(var i in strArray){
+        $.post('dwz.php', {longurl: strArray[i],type:field.type}, function(data) {
+          console.log(data.ae_url);
+          if(data.code != 1)  return layer.alert(data.msg);
+          $('#view').append('<p>'+data.ae_url+'</p>')
+        },'json');
+    }
+    layer.close(loading);
+
+  });
+});
+</script>
+</body>
+</html>

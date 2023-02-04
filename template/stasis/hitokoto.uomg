@@ -1,0 +1,73 @@
+<?php
+/*
+Template Name:一言跳转风格
+Description:跳转页面白色基调,简约模板
+Version:3.1
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1vER9TmrqK1RjSZK9q6xyypXam.jpg
+*/
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{title}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="wap-font-scale" content="no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<script type="text/javascript">{js}</script>
+<script type="text/javascript" src="/assets/plugin/jump/qqapi.js?_bid=152"></script>
+<script type="text/javascript" src="/assets/plugin/jump/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/plugin/jump/uomg.php?ver={ver}"></script>
+<style type="text/css">
+  body,div,form,input,li,ol,p,textarea,ul{margin:0;padding:0}
+  body{background:#fff;color:#3f3f3f;font-family:Apple LiGothic Medium,SimHei,Geneva,Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-appearance:none;width:100%;font-size:16px}
+  img{border:0 none}
+  .fh_jt{width:15rem;height:4.28rem}
+  .fh_jt img{width:15rem;height:4.28rem}
+  .fh_wz{height:6.9rem;line-height:1rem;font-size:.7rem;text-align:center;color:#333}
+  .fh_tp{width:12.44rem;height:10rem;margin:0 auto}
+  .fh_tp img{width:12.44rem;height:10rem;text-align:center}
+</style>
+</head>
+<body style="background-color: #f5f5f5;">
+<div id="Pan_QQ" style="margin: 0 auto;width: 330px;height: 450px;">
+  <div style="margin: 100px auto;width: 330px;height: 450px;">
+  <center>
+  <div id="lwlhitokoto">
+  <a style="display: none;" href="{t_btn_url}" id="{rid}" rel="noreferrer">{t_btn_text}</a><br>
+  <font size="5">“ 正在跳转... ”</font>
+  </div><hr>
+  <div style="text-align:center;color:#888;">
+    <p id="Hitokoto">{msg}</p>
+    <p><br>{name}为您服务</p>
+    <p><br><br>{foot}</p>
+  </div>
+  </center>
+  </div>
+</div>
+<div id="Pan_WX" style="display: none;">
+  <div class="fh_jt"><img src="https://ae01.alicdn.com/kf/HTB1HFGjTjTpK1RjSZKP7613UpXax.png" alt="右上角箭头"></div>
+  <div class="fh_wz">点击屏幕右上角[...]<br/>用 浏览器 打开  </div>
+  <div class="fh_tp"><img src="https://ae01.alicdn.com/kf/HTB1keGaTmzqK1RjSZFL763n2XXaQ.png" alt="浏览器打开"></div>
+</div>
+<script type="text/javascript" src="/assets/plugin/jump/main.php?ver={rid}"></script>
+<script>
+      $(document).ready(function(){
+         $.getJSON(
+              'https://sslapi.hitokoto.cn/',
+              function (data) {
+                if(data.hitokoto){
+                  $("#Hitokoto").html(data.hitokoto);
+                }else{
+                  $("#Hitokoto").html('我们不是狼，我们只是长着獠牙的羊......');
+                }
+              }
+          )
+      });
+</script>
+</body>
+</html>

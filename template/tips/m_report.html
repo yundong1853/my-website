@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>举报网址</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" /><!--默认的宽度和高度-->
+<style>
+*{margin:0px;padding:0px;}
+html, body{
+  background-color: #F5F6FA;
+  margin:0px;
+  padding:0px;
+  line-height: 1rem;
+  font-family:微软雅黑;
+}
+ul{list-style:none; font-size: 14px;}
+.bottom{
+  width:100%;
+  margin:1rem 0 0 0;
+}
+.bottom .m_ad{
+  text-align:center;
+  color:#abb1ba;
+  margin:0.5rem 0 0 0;
+  position:static;
+}
+.bottom .m_ad img{
+  width:1.3rem;
+  height:1.3rem;
+  vertical-align: middle;
+}
+.bottom .m_ad span{
+  margin-left:0.5rem;
+  vertical-align: middle;
+}
+.bottom .m_ad a{
+  color: #388ddf;
+}
+ul li{
+  margin:4px 0;
+  list-style:none;
+  color:#606f84;
+  float:left;
+  width:100%;
+}
+input, textarea,select{
+  height:46px; background-color:#ecf0f2;
+  border:1px solid #c5ced2;
+  color:#606f84;
+  font-size:18px;
+  line-height:44px;
+
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+
+  -webki-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -o-box-sizing:border-box;
+  box-sizing:border-box;
+
+  width:100%;
+  padding:0px 10px;
+}
+textarea{overflow:auto;}
+.error{
+  color:red;
+}
+.error input,.error textarea{
+  background-color:#f6d6d6;
+  border:1px solid #f39a8b;
+}
+#msg_div{
+  font-size: 0.50rem;
+  display:none;
+  background-color: #000;
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  margin-left: -40%;
+  left: 50%;
+  line-height: 44px;
+  text-align: center;
+  -moz-opacity:0.8; /*Firefox私有，透明度50%*/
+  opacity:0.8;/*其他，透明度50%*/
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.wording{
+  background-image: url(https://pc1.gtimg.com/mqq/common_black_tips_icon_info.png);
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 4px;
+  color: #Fff;
+  display: inline-block;
+  text-align: left;
+  padding-left: 40px;
+}
+
+#title {
+  padding-left: 0.43rem;
+  font-size: 0.37rem;
+  color: #878B99;
+}
+.btns {
+  position: absolute;
+  bottom: 0.37rem;
+  z-index: 15;
+  width: 100%;
+  text-align: center;
+  padding: 0 0.37rem;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.known {
+  color: #40A0FF;
+  font-size: 0.35rem;
+  text-decoration: none;
+}
+.known:visited {
+  color: #40A0FF;
+}
+#button{
+  width:100%;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  margin:14px auto 0;
+  border-radius: 5px;
+  text-align:center;
+  cursor:pointer;
+  font-size: 0.45rem;
+  color:#fff;
+  background-color:#00CAFC;
+}
+#reason_input .radio_wrap {
+  position: relative;
+  height: 1.2rem;
+  border-top: 1px solid #F5F6FA;
+  border-bottom: 1px solid #F5F6FA;
+  padding-left: 0.45rem;
+  font-size: 0.45rem;
+  background-color: #fff;
+}
+.radio-label {
+  position: relative;
+  top: 0.1rem;
+  color: #03081A;
+}
+.radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.radio:checked {
+  background-color: #f00;
+}
+.radio:checked + label > .un-img {
+  display: none;
+}
+.radio:checked + label > .selected-img {
+  display: inline-block;
+}
+.selected-img {
+  display: none;
+}
+
+.radio-img {
+  position: relative;
+  top: 0.16rem;
+  width: 0.64rem;
+  height: 0.64rem;
+  padding-right: 6px;
+}
+</style>
+<script type="text/javascript">
+  var px = window.innerWidth / 10
+  if(px > 37.5) px = 37.5
+  document.getElementsByTagName('html')[0].style.fontSize = px + 'px';
+  console.log(document.getElementsByTagName('html')[0].style.fontSize)
+  function px(val) {
+    return val / 37.5
+  }
+</script>
+</head>
+<body style="" id="complainShow">
+  <div class="complain">
+    <ul>
+      <li id="url_input">
+        <input type="hidden" readonly="readonly" id="url" name="url">
+        <label id="title">请选择举报该网址的理由</label>
+      </li>
+      <li id="reason_input">
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason1" value="色情" />
+          <label class="radio-label" for="reason1">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            色情
+          </label>
+        </div>
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason2" value="赌博" />
+          <label class="radio-label" for="reason2">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            赌博
+          </label>
+        </div>
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason3" value="QQ盗号" />
+          <label class="radio-label" for="reason3">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            QQ盗号
+          </label>
+        </div>
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason4" value="诈骗" />
+          <label class="radio-label" for="reason4">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            诈骗
+          </label>
+        </div>
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason5" value="虚假投资理财" />
+          <label class="radio-label" for="reason5">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            虚假投资理财
+          </label>
+        </div>
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason6" value="诱导分享" />
+          <label class="radio-label" for="reason6">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            诱导分享
+          </label>
+        </div>
+        <div class="radio_wrap">
+          <input class="radio" type="radio" name="reason" id="reason7" value="其它" />
+          <label class="radio-label" for="reason7">
+            <img class="radio-img un-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_unselected.png" />
+            <img class="radio-img selected-img" src="https://3gimg.qq.com/tele_safe/static/tmp/ic_selected.png" />
+            其它
+          </label>
+        </div>
+        <!-- <select id="reason">
+          <option value=""></option>
+          <option value="QQ盗号">QQ盗号</option>
+          <option value="谣言">谣言</option>
+          <option value="中奖诈骗">中奖诈骗</option>
+          <option value="仿冒钓鱼">仿冒钓鱼</option>
+          <option value="虚假红包">虚假红包</option>
+          <option value="其他">其他</option>
+        </select> -->
+      <!-- <li id="email_title">联系邮箱(必填)：</li>
+      <li id="email_input"><input type="text" name="email" id="email" placeholder="请输入您的邮箱"></li> -->
+      <li id="vfcode_input">
+        <div id="cap_iframe"></div>
+      </li>
+    </ul>
+  </div>
+  <div style="clear:both;"></div>
+  <div class="btns">
+    <div id="button" onclick="preSubmit();">提交举报</div>
+    <a href="https://urlsec.qq.com/eviltype.html" class="known">举报须知</a>
+  </div>
+  <div class="bottom">
+  </div>
+  <div id="msg_div">
+      <div id="msg_wording" class='wording'></div>
+  </div>
+</body>
+<iframe width="0" height="0" name="jsonp_iframe" id="jsonp_iframe"></iframe>
+<script src="https://3gimg.qq.com/tele_safe/static/Lib/zepto/zepto.min.js"></script>
+<!-- <script src="https://ssl.captcha.qq.com/template/TCapIframeApi.js?aid=2000000015&clientype=1&apptype=1&captype=1&disturblevel=1"></script> -->
+<script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+<script>
+var index=0;
+var verifycode = 0
+var rng = 0
+/*初始化验证码*/
+function initVfCode() {
+  // var capOption={ callback :cbfn,showHeader:false, type:"point", firstvrytype: 1}
+  // capInit(document.getElementById("cap_iframe"), capOption)
+  // function cbfn(obj) {
+  //   if(obj.ret == 0) {
+  //     verifycode = obj.ticket
+  //     rng = obj.randstr
+  //   }
+  //   submit()
+  // }
+  var captcha1 = new TencentCaptcha('2046626881', function(res) {
+    if(res.ret == 0) {
+      verifycode = res.ticket
+      rng = res.randstr
+      submit()
+    }
+  });
+  captcha1.show()
+}
+// initVfCode()
+function checkURL(){
+  var urlDom= document.getElementById('url');
+  urlDom.parentElement.className="";
+  var url = urlDom.value;
+  var urlRegExp=/^http/
+  if(url=="" || url.indexOf(".") < 0 || !urlRegExp.test(url)){
+    error("没有获得需要举报的网址，请重新进行举报");
+    return false;
+  }
+  return true;
+}
+function checkRadio() {
+  if(!$('.radio:checked').val()) {
+     error("请选择举报理由");
+    return false;
+  }
+  return true;
+}
+
+function report_callBack(d){
+    if(d.code == 1){
+      // window.open('m_report_success.html', '_self')
+      window.location.search="?method=m_report_success";
+    }else{
+       error("该url已经被其他用户举报过");
+    }
+}
+function preSubmit() {
+  if(!checkURL() || !checkRadio()) {
+    return
+  }
+  initVfCode()
+}
+function submit(){
+	if(!checkURL() || !checkRadio()) {
+	  return
+	}
+  error("正在提交数据，请稍候！");
+	$.getJSON('/api.php?method=report', {
+    url: $('#url').val(),
+    reason:$('.radio:checked').val(),
+    email:'',
+    src_type:4,
+    ticket: verifycode,
+    randstr: rng
+	}, function(json, textStatus) {
+		report_callBack(json)
+		console.log(json);
+	});
+}
+function asc2str(asc){
+    return String.fromCharCode(asc);
+}
+function GetUrlParms(){
+  var args=new Object();
+  var query=location.search.substring(1);//获取查询串
+  var pairs=query.split("&");//在逗号处断开
+  for(var i=0;i<pairs.length;i++)
+  {
+    var pos=pairs[i].indexOf('=');//查找name=value
+    if(pos==-1)   continue;//如果没有找到就跳过
+    var argname=pairs[i].substring(0,pos);//提取name
+    var value=pairs[i].substring(pos+1);//提取value
+    args[argname]=unescape(value);//存为属性
+  }
+  return args;
+}
+
+function getQuery(key){
+    var r = new RegExp("\\?(?:.+&)?"+ key +"=(.*?)(?:&.*)?$");
+    var m = window.location.toString().match(r);
+    var url=m ? m[1] : "";
+    var ret="";
+    for(var i=0;i<url.length;i++){
+        var chr = url.charAt(i);
+        if(chr == "+"){
+            ret+=" ";
+        }else if(chr=="%"){
+            var asc = url.substring(i+1,i+3);
+            if(parseInt("0x"+asc)>0x7f){
+                ret+=asc2str(parseInt("0x"+asc+url.substring(i+4,i+6)));
+                i+=5;
+            }else{
+                ret+=asc2str(parseInt("0x"+asc));
+                i+=2;
+            }
+        }else{
+            ret+= chr;
+        }
+    }
+    return ret;
+}
+
+function error(msg){
+  $("#msg_wording").html(msg);
+  $("#msg_div").show();
+  setTimeout(function(){$("#msg_div").hide()},3000);
+  //alert(msg);
+}
+(function(){
+  var url = getQuery("url"),qq = getQuery("qq");
+  if($.trim(url) == "" || url == undefined){
+    url = getQuery("shareUrl");
+  }
+  var reg = /^http:\/\/[\w|\.]*(\.mp\.qq\.com)+?/;
+    var reg2 = /[\w|\.]*(kandian\.qq\.com)+?/
+  if(reg.test(url)){
+    var redirecturl = "https://yun.m.qq.com/redirect/index.php?qq="+qq+"&article_url="+encodeURIComponent(url);
+    window.location = redirecturl;
+  } else if (reg2.test(url)) {
+    var _search = location.search;
+    _search = _search.replace(/[\%\<\>\"\'\\\/\:\(\)\;\{\}]/g,'');
+    var redirecturls = "https://post.mp.qq.com/jubao/index" + _search
+    window.location = redirecturls
+  }else {
+    $('#complainShow').show()
+    document.getElementById('url').value = atob(url);
+    // document.getElementById('email').value= qq + "@qq.com";
+  }
+
+  // 底部处理
+  if(isIphoneX()) {
+    $('.btns').css('bottom', '48px')
+  }
+})();
+
+function isIphoneX(){
+  return /iphone/gi.test(navigator.userAgent) && (screen.height >= 812)
+}
+</script>
+</html>

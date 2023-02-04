@@ -1,0 +1,256 @@
+<?php
+/*
+Template Name:6度短网址手机版
+Description:6度短网址手机版，简约竖版界面！
+Version:3.0
+Author:墨渊
+Author Url:http://www.aeink.com
+Preview Url:https://ae01.alicdn.com/kf/HTB1ZnOdTlLoK1RjSZFuq6xn0XXa1.jpg
+*/
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{name} - {sitename}</title>
+<meta name="keywords" content="{keywords}"/>
+<meta name="description" content="{description}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,target-densitydpi=medium-dpi">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<!-- 首页CSS -->
+<link rel="stylesheet" href="assets/css/page_mobile_index.css" />
+<link rel="stylesheet" href="assets/css/sweetalert.css" type='text/css' media='all' />
+<script src="assets/js/sweetalert.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="Mobile_Page_Index">
+  <div class="Header">
+    <h1 class="Logo"> 
+        <a href="#" data-transition="slide"><em>教程</em></a> 
+        <a href="/user" target="_blank" data-transition="slide"><i class="fa fa-user"></i> </a> 
+        
+    </h1>
+    <span> 
+	    <em style="margin-bottom:1.2em; font-size:14px; border:1px dotted #FFFFFF; border-radius:20px; width:80%; margin-left:auto; margin-right:auto;">{msg}</em>
+	    <em class="NumApi">1,834,217,665</em>
+	    <em class="font-size:8px">次稳定服务</em>
+	    <em class="NumPage">1,834,217,665</em>
+    </span> 
+  </div>
+  <div data-role="navbar">
+    <ul class="IndexTab">
+      <li><a href="index.html#">举报</a></li>
+      <li><a href="index.html#" class="ui-btn-active ui-state-persist">生成</a></li>
+      <li><a href="index.html#">统计</a></li>
+    </ul>
+  </div>
+  <!--  首页提交页面  -->
+  <div class="PageBox"> 
+    <!--  提交举报短网址页面  -->
+    <div class="GageBox" style="display:none">
+      <input type="text" name="GageBox_Input" placeholder="请输入您举报的短网址" data-role="none" class="InputA" style="border-color:#C30" />
+      <b class="BtnA RedBg">提交举报</b> <span class="NoticeSpan"></span> </div>
+    <!--  提交长网址页面  -->
+    <div class="CreateBox">
+      <input type="text" name="CreateBox_Input" placeholder="请输入您的网址" data-role="none" class="InputA" />
+      <b class="BtnA BlueBg">马上生成</b> <span class="NoticeSpan"></span> </div>
+    <!--  提交查看统计页面  -->
+    <div class="ReportBox" style="display:none">
+      <input type="text" name="ReportBox_Input" placeholder="请输入您的短网址" data-role="none" class="InputA" style="border-color:#090" />
+      <b class="BtnA GreenBg">查看统计</b> <span class="NoticeSpan"></span> </div>
+  </div>
+  <div style="width:100%;max-width:560px;position:fixed;bottom: 0;font-size: 12px;margin-bottom: 10px;">
+  	<span>© 2014-2017 <a href="http://www.aeink.com">{name}</a></span>
+  </div>
+</div>
+<!--  END 首页提交页面  --> 
+
+<!--  创建短网址返回结果页面  -->
+<div data-role="page" id="Page_CreateResult" data-url="Page_CreateResult" tabindex="0" class="ui-page ui-page-theme-a" > 
+	<div data-role="header" role="banner" class="ui-header ui-bar-inherit"> 
+	    <a href="javascript:void(0)" onclick="location.reload()" data-rel="reload" data-iconpos="notext" data-icon="arrow-l" data-mini="true" class="ui-link ui-btn-left ui-btn ui-icon-arrow-l ui-btn-icon-notext ui-shadow ui-corner-all ui-mini" data-role="button" role="button">返回</a> 
+	    <h1 class="ui-title" role="heading" aria-level="1">我的短网址</h1> 
+   	</div>
+  <div data-role="main" class="ui-content"> 
+    <div class="MyUrlBox">
+        <i> <img src="" class="ResultIMG"> </i>
+        <span style=" font-size:12px;">您的短网址是 	</span>
+        <textarea type="text" rows="5" class="Url ResultRUL" id="ResultRUL"></textarea>
+        <a href="" class="LinkVisitedMyUrl ui-link" id="LinkVisitedMyUrl" data-ajax="false">访问我的网址</a>
+        <a href="" class="LinkReport ui-link" id="LinkReport" data-ajax="false">查看统计</a>
+        <a href="#" class="LinkCollection ui-link"> 收藏本页</a>
+     </div> 
+   </div>
+</div>
+
+<script>
+var ApiNum;
+var ApiNumNew;
+
+//获取最新统计数字
+function GetNum() { 
+	$.getJSON("api.php?method=index_num",function(data){ 
+	    $(".NumApi").text(toThousands(data.ApiUseNum));
+		$(".NumPage").text(toThousands(data.UrlUseNum)+" 个接口稳定运行");
+	}) ;
+}
+
+//数字格式化为千位标识
+function toThousands(num) {
+    var num = (num || 0).toString(), re = /\d{3}$/, result = '';
+    while ( re.test(num) ) {
+        result = RegExp.lastMatch + result;
+        if (num !== RegExp.lastMatch) {
+            result = ',' + result;
+            num = RegExp.leftContext;
+        } else {
+            num = '';
+            break;
+        }
+    }
+    if (num) { result = num + result; }
+    return result;
+}
+
+
+ $(document).ready(function(){
+	$(function () {
+		var cnzz = document.createElement("script");
+		cnzz.src = "https://s11.cnzz.com/z_stat.php?id={cnzzid}&web_id={cnzzid}"; 
+		document.getElementsByTagName('body')[0].appendChild(cnzz);
+	});
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?{bdtjid}";
+		var s = document.getElementsByTagName("script")[0]; 
+		s.parentNode.insertBefore(hm, s);
+	})();
+	 //载入初始数字
+	GetNum();
+	setInterval('GetNum();', {delay});  
+	
+	 //首页Tab页控制页面切换和样式变化
+	  $(".IndexTab li a").click(function(){
+		  var i =$(this).parents("li").parents("ul").find("li").index($(this).parents("li"));
+		 
+		$(".PageBox div").hide();
+		$(".PageBox div").eq(i).show();
+				
+		$(this).parents("li").parents("ul").find("li").find("a").css("color","#323651");
+		if(i==0){
+			$(".Header").css("background-color","#C30");
+			$(this).css("color","#C30");
+		}else if(i==1){
+			$(".Header").css("background-color","#0093e1");
+			$(this).css("color","#0093e1");
+		}else{
+			$(".Header").css("background-color","#090");
+			$(this).css("color","#090");
+		}
+	  });
+	  
+	 //举报短网址提交操作	
+	  $(".GageBox b").click(function(){
+		  if($("input[name='GageBox_Input']").val().length<5){
+				  //按钮下提示文字
+				  $(".GageBox span").text("请输入正确的网址！");
+		  }else{
+				  //清空按钮下提示文字
+				  $(".GageBox span").text("");
+				  //获取6度API接口数据
+				  var Url= "https://guanjia.qq.com/online_server/m_report.html?shareUrl="+$("input[name='GageBox_Input']").val();
+				  window.location.replace(Url);
+		     }
+	    });
+	  
+	 //创建短网址提交操作	
+	  $(".CreateBox b").click(function(){
+		  var url = $("input[name='CreateBox_Input']").val().trim();
+		  if(url.length<5){
+				  //按钮下提示文字
+				  $(".CreateBox span").text("请输入正确的网址！");
+		  }else{
+		     $.getJSON(
+	            'dwz.php?longurl=' + encodeURIComponent(url),
+	            function (data) {
+	            	if(data.ae_url){
+		            	$("#Page_CreateResult").show();
+		            	$("#Mobile_Page_Index").hide();
+		            	var ae_url = data.ae_url;
+							ae_url = ae_url.replace(/<br \/>/g,'\r\n');
+		            	$("#ResultRUL").html(ae_url);
+		            	$("#LinkVisitedMyUrl").attr("href",data.longurl);
+		            	$("#LinkReport").attr("href","tj.php?longurl="+data.longurl);
+		            	$(".ResultIMG").attr("src","qr.php?url="+data.longurl);
+	                    console.log(data); 
+	                }else{
+	                    alert(data.msg);
+	                }
+
+	            }
+	        )
+		  }
+	    });
+
+
+
+		//查看统计操作	
+	  $(".ReportBox b").click(function(){
+		  var url = $("input[name='ReportBox_Input']").val().trim();
+		  if(url.length<5){
+				  //按钮下提示文字
+				  $(".ReportBox span").text("请输入正确的网址！");
+		  }else{
+			  
+			      window.location.href='tj.php?longurl='+url;
+			   				  
+		     }
+	    });
+		
+});
+
+
+wx.config({
+	debug: false,
+	appId: 'wx243387f158ad7fbd',
+	timestamp: 1509361184,
+	nonceStr: 'Jr7nUo4y8D0Owc8x',
+	signature: '310266b9a97d2f24ff9967bec3baba6b9679bfb0',
+	jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+});
+
+wx.ready(function () {
+	
+	
+	var WeixinTitle="{name}";
+	var WeixinDesc="不仅仅是带统计的短网址和二维码！{name}，让推广运营更完美！";
+	var WeixinLink="{siteurl}";
+	var WeixinImgUrl="{siteurl}/assets/images/logo.png";
+
+	
+	var shareData = {
+		title: WeixinTitle,
+		desc:WeixinDesc,
+		link: WeixinLink,
+		imgUrl: WeixinImgUrl
+	};
+		
+	wx.onMenuShareAppMessage(shareData);
+	wx.onMenuShareTimeline(shareData);
+	wx.onMenuShareQQ(shareData);
+	wx.onMenuShareWeibo(shareData);
+	wx.error(function (res) {
+  			console.log(res.errMsg);
+ 	});
+});
+</script>
+<!--END 微信分享-->
+
+ </body>
+</html>
