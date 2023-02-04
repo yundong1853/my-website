@@ -1,0 +1,41 @@
+  /* 头部 */
+  .header{height: 59px; border-bottom: 1px solid #404553;  background-color: #393D49;}
+  .logo{position: absolute; left: 0; top: 16px;}
+  .logo img{width: 82px; height: 31px;}
+  .header .layui-nav{position: absolute; right: 0; top: 0; padding: 0; background: none;}
+  .header .layui-nav .layui-nav-item{margin: 0 20px; }
+  .header .layui-nav .layui-nav-item[mobile]{display: none;}
+  .header .layui-container .logo{left: 15px;}
+  .header .layui-container .layui-nav{right: 15px;}
+  .header-demo{height: 60px; border-bottom: none;}
+  .header-demo .logo{left: 40px;}
+  .header-demo .layui-nav{top: 0;}
+  .header-demo .layui-nav .layui-nav-item{margin: 0 10px;}
+  .header-demo .layui-nav .layui-this a{padding: 0 30px;}
+  .header-demo .component{left: 185px;}
+  .layui-install{width: 90%;margin:auto;padding-top: 30px;}
+  .layui-install p{line-height: 22px;font-size: 14px;color: #666;}
+  .layui-install-head{width: 200px;height: 30px;line-height: 30px;font-size: 14px;text-indent: 10px;background: #393D49;letter-spacing: 2px;color: #fff;font-weight: bold;border-radius:5px 50px 5px 5px;}
+  .layui-install-body{border-top: 1px solid #393D49;border-bottom: 1px solid #393D49;overflow:auto;font-size: 12px;line-height: 16px;text-align: left;}
+  .layui-install-foot{padding: 20px;}
+  .layui-install-foot .next{float: right;}
+  .layui-install .error{height:auto;padding: 20px;}
+  .layui-install .qq{height:auto;padding: 20px;}
+  .layui-install .protocol{height:400px;padding: 20px;}
+  .layui-install .create{padding-top: 15px;}
+  .layui-install .run{height:auto;padding-top: 10px;}
+  .layui-install .layui-form-radio{padding: 0;margin: 0;}
+  .layui-install .layui-form-radio i{padding: 0;margin: 0;}
+  /* 颜色适配 */
+  .layui-text-red{color: red;}
+  .layui-text-green{color: green;}
+  /* 适配多设备 */
+  @media screen and (max-width: 750px) {
+    .layui-main{width: auto; margin: 0 10px;}
+    .logo, .header-demo .logo{left: 10px;}
+    .header .layui-nav-child{left: auto; right: 0;}
+    .header .layui-nav .layui-nav-item{margin: 0;}
+    .header .layui-nav .layui-nav-item a{padding: 0 20px;}
+    .header .layui-nav .layui-nav-item[pc]{display: none;}
+    .header .layui-nav .layui-nav-item[mobile]{display: inline-block;}
+  }
