@@ -1,0 +1,7 @@
+{
+	"code": 0,
+	"method":"get",
+	"url": "https://eps.gs/api/create_short_url?",
+	"param": "url={uomg}",
+	"key":"url"
+}
